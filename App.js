@@ -1,10 +1,11 @@
 import react from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react-native'; // 1 importando imagem, TouchableOpacity(botão sem design) e flatlist para  lista do feed
 import { Component } from 'react/cjs/react.production.min';
+import Lista from './Components/Lista';  // 2 - importando component Lista que será iusado no renderItem(linha 88) para formatar e estilizar lista do flatlist (no caso so dados do feed)
 
 // import das imagens do feed
-import FotoPerfil1 from './assets/image/imageFeed/d1.jpeg';  // importacao de imagem perfil
-import FotoPublicacao1 from './assets/image/imageFeed/d2.jpeg'; // importacao de imagem publicacao
+import FotoPerfil1 from './assets/image/imageFeed/d1.jpeg';  // 1 - importacao de imagem perfil
+import FotoPublicacao1 from './assets/image/imageFeed/d2.jpeg'; // 1 - importacao de imagem publicacao
 
 class App extends Component{  
   constructor(props){
@@ -61,23 +62,31 @@ class App extends Component{
   render(){
     return(
       <View style={styles.container}>
+        {/* 1 - Header */}
         <View style={styles.header}>
           <TouchableOpacity>
             <Image 
-              source={require('./assets/image/logo.png')}  // importando foto direto da pasta do arquivo usando require
+              source={require('./assets/image/logo.png')}  // 1 - importando foto direto da pasta do arquivo usando require
               style={styles.logo}
             />
           </TouchableOpacity>
 
           <TouchableOpacity>
             <Image 
-              source={require('./assets/image/send.png')} // importando foto direto da pasta do arquivo usando require
+              source={require('./assets/image/send.png')} // 1- importando foto direto da pasta do arquivo usando require
               style={styles.send}
             />
           </TouchableOpacity>
-          
-
         </View>
+ 
+        {/*2 - Flatlist */}
+        <FlatList 
+          showsHorizontalScrollIndicator={false} // 2 - desligando barrinha de rolagem na horizontal
+          data={this.state.feed} // 2 -  data recebe as infos do feed(linha 14)
+          renderItem={ ({item}) => <Lista  data={item} />} // 2 - renderItem responsavel por mostrar dados e
+                                                           // 2 - renderiza componente Lista que usa como props data que recebe item(dados percorridos do state array feed )
+
+        />
         
       </View>
     )
