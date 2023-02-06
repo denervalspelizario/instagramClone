@@ -15,6 +15,7 @@ class App extends Component{
         {
           id: '1', 
           nome: 'Denerval  S Pelizario',
+          descricao: '#tbt barbecue family',
           imgPerfil: FotoPerfil1,  // uso da foto importada
           imgPublicacao:  FotoPublicacao1, // uso da foto importada
           likeada: false,
@@ -23,6 +24,7 @@ class App extends Component{
         {
           id: '2', 
           nome: 'Jessika',
+          descricao: '#tbt barbecue family',
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
@@ -31,6 +33,7 @@ class App extends Component{
         {
           id: '3', 
           nome: 'Gabi Chagas',
+          descricao: '#tbt barbecue family',
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
@@ -39,6 +42,7 @@ class App extends Component{
         {
           id: '4', 
           nome: 'Pedrão',
+          descricao: '#tbt barbecue family',
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
@@ -47,6 +51,7 @@ class App extends Component{
         {
           id: '5', 
           nome: 'Tom',
+          descricao: '#tbt barbecue family',
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,

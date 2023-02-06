@@ -47,7 +47,18 @@ class Lista extends Component {
                             style={styles.iconeLike}  
                         />
                     </TouchableOpacity>        
-                </View>    
+                </View> 
+
+                <View style={styles.containerFooter}>
+                    <Text style={styles.nomeFooter}>
+                        {/*  recebe dado do state feed que recebeu dados do feed do App.js (leia linha 12) */}
+                        {this.state.feed.nome}  
+                    </Text>
+                    <Text style={styles.textFooter}>
+                        {/*  recebe dado do state feed que recebeu dados do feed do App.js (leia linha 12) */}
+                        {this.state.feed.descricao}
+                    </Text>
+                </View>   
             </View>
         )
     }
@@ -93,6 +104,21 @@ const styles = StyleSheet.create({
     },
     btnSend: {
         paddingLeft: 10,
+    },
+    containerFooter: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    textFooter: {
+        paddingLeft: 5,
+        fontSize: 15,
+        color: '#000',
+    },
+    nomeFooter: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color:'#000',
+        paddingLeft: 5,
     }
 
  
