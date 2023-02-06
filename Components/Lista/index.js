@@ -34,6 +34,20 @@ class Lista extends Component {
                         source={this.state.feed.imgPublicacao} // 4  source recebe endereco do state feed que recebeu dados do feed do App.js (leia linha 12)
                         style={styles.fotoPublicacao}
                     />
+                <View style={styles.containerBtn}>
+                    <TouchableOpacity> 
+                        <Image 
+                            source={require('../../assets/image/like.png')}  //  importando foto direto da pasta do arquivo usando require
+                            style={styles.iconeLike}  
+                        />
+                    </TouchableOpacity>  
+                    <TouchableOpacity style={styles.btnSend}> 
+                        <Image 
+                            source={require('../../assets/image/send.png')}  //  importando foto direto da pasta do arquivo usando require
+                            style={styles.iconeLike}  
+                        />
+                    </TouchableOpacity>        
+                </View>    
             </View>
         )
     }
@@ -68,6 +82,17 @@ const styles = StyleSheet.create({
         height: 400, // tamanho da foto
         alignItems: 'center', // centralizando imagem
         width: '100%',
+    },
+    containerBtn: {
+        flexDirection: 'row',
+        padding: 5,
+    },
+    iconeLike: {
+        width: 33,
+        height: 33,
+    },
+    btnSend: {
+        paddingLeft: 10,
     }
 
  
