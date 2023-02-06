@@ -64,7 +64,8 @@ class App extends Component{
       <View style={styles.container}>
         {/* 1 - Header */}
         <View style={styles.header}>
-          <TouchableOpacity>
+          {/*TouchableOpacity um botao sem estilizacao */}
+          <TouchableOpacity>  
             <Image 
               source={require('./assets/image/logo.png')}  // 1 - importando foto direto da pasta do arquivo usando require
               style={styles.logo}
@@ -82,9 +83,11 @@ class App extends Component{
         {/*2 - Flatlist */}
         <FlatList 
           showsHorizontalScrollIndicator={false} // 2 - desligando barrinha de rolagem na horizontal
+          keyExtractor={(item) => item.id} // 2 - garantir que o flatlist vai reconhecer as ids - (item) contem this.state.feed logo ao item.id recebe o id do feed(linha 14)
           data={this.state.feed} // 2 -  data recebe as infos do feed(linha 14)
           renderItem={ ({item}) => <Lista  data={item} />} // 2 - renderItem responsavel por mostrar dados e
-                                                           // 2 - renderiza componente Lista que usa como props data que recebe item(dados percorridos do state array feed )
+                                                           // 2 - renderiza uma arrow function que tem uma  componente Lista,
+                                                           // 2 - que usa como props data que recebe item(dados percorridos do state array feed linha 14 )
 
         />
         
