@@ -9,10 +9,24 @@ class Lista extends Component {
     constructor(props){
         super(props);
         this.state = {
-            feed: this.props.data  //  4 - feed recebe props data(conteudo state array feed linha 14 do App.js) , que é onde vem a info no caso do data do flatlist
+            feed: this.props.data  //  4 - feed recebe props data(linha 92 app.js) da flatList que recebeu como dado o state feed que é uma array(ver linha 14 app.js)
         };
     }
 
+    showLikes(like){  // 5 - funcao para mostrar e receber likes, (verifique linha 56) 
+        let feed = this.state.feed  // variável feed recebe os dados de feed(linha 14 app.js)  
+
+        if(feed.like <= 0){
+            return;   // 5 - se like for igual menor que zero retorna vazio
+        
+        } else {  // 5 - senão  obs: o return tem que vir com () em seguida neste caso    
+
+            return( // 5 - recebe numero de likes e depois uma arrow function dizendo que se numero de curtidas
+                    // for maior que 1 retorna string curtidas senão retorna a string curtida    
+                    <Text style={styles.likers}>{feed.like} {feed.like > 1 ? 'curtidas' : 'cuertida'}</Text>
+            )       
+            }
+    }
 
 
     render(){
@@ -48,6 +62,9 @@ class Lista extends Component {
                         />
                     </TouchableOpacity>        
                 </View> 
+
+                {/* 5 funcao que mostra a quantidade de likes que recebe como parametro o state.feed.like (linha 14 do app.js) */}
+                {this.showLikes(this.state.feed.like)}  
 
                 <View style={styles.containerFooter}>
                     <Text style={styles.nomeFooter}>
@@ -119,6 +136,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color:'#000',
         paddingLeft: 5,
+    },
+    likers:{
+        fontWeight: 'bold',
+        marginLeft: 5,
     }
 
  

@@ -19,7 +19,7 @@ class App extends Component{
           imgPerfil: FotoPerfil1,  // uso da foto importada
           imgPublicacao:  FotoPublicacao1, // uso da foto importada
           likeada: false,
-          liker: 0
+          like: 0
         },
         {
           id: '2', 
@@ -28,7 +28,7 @@ class App extends Component{
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
-          liker: 0
+          like: 0
         },
         {
           id: '3', 
@@ -37,7 +37,7 @@ class App extends Component{
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
-          liker: 0
+          like: 0
         },
         {
           id: '4', 
@@ -46,7 +46,7 @@ class App extends Component{
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
-          liker: 0
+          like: 0
         },
         {
           id: '5', 
@@ -55,7 +55,7 @@ class App extends Component{
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
-          liker: 0
+          like: 0
         },
       ]
     }
@@ -89,7 +89,7 @@ class App extends Component{
         <FlatList 
           showsHorizontalScrollIndicator={false} // 2 - desligando barrinha de rolagem na horizontal
           keyExtractor={(item) => item.id} // 2 - garantir que o flatlist vai reconhecer as ids - (item) contem this.state.feed logo ao item.id recebe o id do feed(linha 14)
-          data={this.state.feed} // 2 -  data recebe as infos do feed(linha 14)
+          data={this.state.feed} // 2 -  data(dado) recebe as infos do feed(linha 14)
           renderItem={ ({item}) => <Lista  data={item} />} // 2 - renderItem responsavel por mostrar dados e
                                                            // 2 - renderiza uma arrow function que tem uma  componente Lista,
                                                            // 2 - que usa como props data que recebe item(dados percorridos do state array feed linha 14 )
