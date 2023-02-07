@@ -2,6 +2,7 @@
 
 import React, {Component} from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'; // 1 importando imagem, TouchableOpacity(botão sem design) 
+import Like from '../../assets/image/like.png';
 
 
 class Lista extends Component {
@@ -14,6 +15,17 @@ class Lista extends Component {
         };
         this.showLikes = this.showLikes.bind(this)  // 5 bind para funcionar funcao showlikes linkando a showlikes com o feed(linha12)
         this.like = this.like.bind(this) // 6 bind para funcionar funcao like linkando com o feed(linha 12)
+        this.alteraIcone = this.alteraIcone.bind(this) // 6 bind para funcionar funcao alteraIcone linkando com o feed(linha 12)
+
+    }
+
+    // 7 funcao altera icone que substitui icone
+    alteraIcone(likeada){ 
+        // 7 -  retorna um arrow function se likeada for true(recebe parametro de this.state.feed.likeada linha 97)
+        // retorna imagem pelo require senao Like(imagem importada)
+        // ou seja Likeada(foi clicada) imagem coracao vermelho, senao(nao clicada) mostra imagem coracao em branco 
+        return likeada ? require('../../assets/image/likeada.png') : Like  
+        
     }
 
     showLikes(like){  // 5 - funcao para mostrar e receber likes, (verifique linha 56) 
@@ -26,7 +38,7 @@ class Lista extends Component {
 
             return( // 5 - recebe numero de likes e depois uma arrow function dizendo que se numero de curtidas
                     // for maior que 1 retorna string curtidas senão retorna a string curtida    
-                    <Text style={styles.likers}>{feed.like} {feed.like > 1 ? 'curtidas' : 'cuertida'}</Text>
+                    <Text style={styles.likers}>{feed.like} {feed.like > 1 ? 'curtidas' : 'curtida'}</Text>
             )       
         }
     }
@@ -56,6 +68,8 @@ class Lista extends Component {
         }
 
     }
+
+    
         
 
 
@@ -82,7 +96,7 @@ class Lista extends Component {
                                     {/* 6 ao clicar no botar(uso de onPress) chama a funcao like*/}
                     <TouchableOpacity onPress={this.like}> 
                         <Image 
-                            source={require('../../assets/image/like.png')}  //  importando foto direto da pasta do arquivo usando require
+                            source={ this.alteraIcone(this.state.feed.likeada)} // 7  funcao alteraIcone que recebe como parametro o state likeada
                             style={styles.iconeLike}  
                         />
                     </TouchableOpacity>  

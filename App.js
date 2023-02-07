@@ -6,6 +6,15 @@ import Lista from './Components/Lista';  // 2 - importando component Lista que s
 // import das imagens do feed
 import FotoPerfil1 from './assets/image/imageFeed/d1.jpeg';  // 1 - importacao de imagem perfil
 import FotoPublicacao1 from './assets/image/imageFeed/d2.jpeg'; // 1 - importacao de imagem publicacao
+import FotoPerfil2 from './assets/image/imageFeed/j1.jpg' // 1 - importacao de imagem perfil
+import FotoPublicacao2 from './assets/image/imageFeed/j2.jpeg'; // 1 - importacao de imagem publicacao
+import FotoPerfil3 from './assets/image/imageFeed/g1.jpg';  // 1 - importacao de imagem perfil
+import FotoPublicacao3 from './assets/image/imageFeed/g2.jpg'; // 1 - importacao de imagem publicacao
+import FotoPerfil4 from './assets/image/imageFeed/p1.jpg';  // 1 - importacao de imagem perfil
+import FotoPublicacao4 from './assets/image/imageFeed/p2.jpeg'; // 1 - importacao de imagem publicacao
+import FotoPerfil5 from './assets/image/imageFeed/t1.jpeg';  // 1 - importacao de imagem perfil
+import FotoPublicacao5 from './assets/image/imageFeed/t2.jpeg'; // 1 - importacao de imagem publicacao
+
 
 class App extends Component{  
   constructor(props){
@@ -24,36 +33,36 @@ class App extends Component{
         {
           id: '2', 
           nome: 'Jessika',
-          descricao: '#tbt barbecue family',
-          imgPerfil: FotoPerfil1,
-          imgPublicacao:  FotoPublicacao1,
+          descricao: 'Tom nao gosta de tirar fotos',
+          imgPerfil: FotoPerfil2,
+          imgPublicacao:  FotoPublicacao2,
           likeada: false,
           like: 5
         },
         {
           id: '3', 
           nome: 'Gabi Chagas',
-          descricao: '#tbt barbecue family',
-          imgPerfil: FotoPerfil1,
-          imgPublicacao:  FotoPublicacao1,
+          descricao: 'comendo um miojão',
+          imgPerfil: FotoPerfil3,
+          imgPublicacao:  FotoPublicacao3,
           likeada: false,
           like: 0
         },
         {
           id: '4', 
           nome: 'Pedrão',
-          descricao: '#tbt barbecue family',
-          imgPerfil: FotoPerfil1,
-          imgPublicacao:  FotoPublicacao1,
+          descricao: 'No parque da cidade',
+          imgPerfil: FotoPerfil4,
+          imgPublicacao:  FotoPublicacao4,
           likeada: false,
           like: 32
         },
         {
           id: '5', 
           nome: 'Tom',
-          descricao: '#tbt barbecue family',
-          imgPerfil: FotoPerfil1,
-          imgPublicacao:  FotoPublicacao1,
+          descricao: 'Eu e gabi no parque',
+          imgPerfil: FotoPerfil5,
+          imgPublicacao:  FotoPublicacao5,
           likeada: false,
           like: 12
         },
