@@ -19,7 +19,7 @@ class App extends Component{
           imgPerfil: FotoPerfil1,  // uso da foto importada
           imgPublicacao:  FotoPublicacao1, // uso da foto importada
           likeada: false,
-          like: 0
+          like: 10
         },
         {
           id: '2', 
@@ -28,7 +28,7 @@ class App extends Component{
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
-          like: 0
+          like: 5
         },
         {
           id: '3', 
@@ -46,7 +46,7 @@ class App extends Component{
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
-          like: 0
+          like: 32
         },
         {
           id: '5', 
@@ -55,7 +55,7 @@ class App extends Component{
           imgPerfil: FotoPerfil1,
           imgPublicacao:  FotoPublicacao1,
           likeada: false,
-          like: 0
+          like: 12
         },
       ]
     }

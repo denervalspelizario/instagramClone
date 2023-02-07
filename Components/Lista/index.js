@@ -9,12 +9,15 @@ class Lista extends Component {
     constructor(props){
         super(props);
         this.state = {
-            feed: this.props.data  //  4 - feed recebe props data(linha 92 app.js) da flatList que recebeu como dado o state feed que é uma array(ver linha 14 app.js)
+            feed: this.props.data,  //  4 - feed recebe props data(linha 92 app.js) da flatList que recebeu como dado o state feed que é uma array(ver linha 14 app.js)
+            
         };
+        this.showLikes = this.showLikes.bind(this)  // 5 bind para funcionar funcao showlikes linkando a showlikes com o feed(linha12)
+        this.like = this.like.bind(this) // 6 bind para funcionar funcao like linkando com o feed(linha 12)
     }
 
     showLikes(like){  // 5 - funcao para mostrar e receber likes, (verifique linha 56) 
-        let feed = this.state.feed  // variável feed recebe os dados de feed(linha 14 app.js)  
+        let feed = this.state.feed  // variável feed recebe os dados de feed(linha 12)  
 
         if(feed.like <= 0){
             return;   // 5 - se like for igual menor que zero retorna vazio
@@ -25,8 +28,35 @@ class Lista extends Component {
                     // for maior que 1 retorna string curtidas senão retorna a string curtida    
                     <Text style={styles.likers}>{feed.like} {feed.like > 1 ? 'curtidas' : 'cuertida'}</Text>
             )       
-            }
+        }
     }
+
+    // 6 funcao  acionada ao clicar(onPress) botao (linha 60)
+    like(){
+        let feed = this.state.feed  // variável feed recebe os dados de feed(linha 12)  
+        
+        // 6 - se foto ja for curtida(true)  tira o like
+        if(feed.likeada === true){
+            this.setState({  // 6 - altera o state do feed
+                feed: { 
+                    ...feed, // 6 - Obs ... feed indica que não se altera todos os elementos do feed apenas os sinalizados(no caso os linha abaixo 43 e 44)
+                    likeada : false,  // 6 - muda o likeada para false
+                    like : feed.like - 1,  // 6 -  muda o like para like - 1 ou seja diminui um like 
+                }
+            });
+        } else {
+            this.setState({
+                feed: {
+                    ...feed, // 6 - Obs ... feed indica que não se altera todos os elementos do feed apenas os sinalizados(no caso os linha abaixo 43 e 44)
+                    likeada : true,  // 6 - muda o likeada para true
+                    like: feed.like + 1,     // 6 -  muda o like para like + 1 ou seja aumenta um like 
+                
+                }
+            });
+        }
+
+    }
+        
 
 
     render(){
@@ -48,8 +78,9 @@ class Lista extends Component {
                         source={this.state.feed.imgPublicacao} // 4  source recebe endereco do state feed que recebeu dados do feed do App.js (leia linha 12)
                         style={styles.fotoPublicacao}
                     />
-                <View style={styles.containerBtn}>
-                    <TouchableOpacity> 
+                <View style={styles.containerBtn} >
+                                    {/* 6 ao clicar no botar(uso de onPress) chama a funcao like*/}
+                    <TouchableOpacity onPress={this.like}> 
                         <Image 
                             source={require('../../assets/image/like.png')}  //  importando foto direto da pasta do arquivo usando require
                             style={styles.iconeLike}  
@@ -65,6 +96,7 @@ class Lista extends Component {
 
                 {/* 5 funcao que mostra a quantidade de likes que recebe como parametro o state.feed.like (linha 14 do app.js) */}
                 {this.showLikes(this.state.feed.like)}  
+                
 
                 <View style={styles.containerFooter}>
                     <Text style={styles.nomeFooter}>
